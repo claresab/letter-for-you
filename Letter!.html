@@ -1,0 +1,177 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter for u ♡ </title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background-color: #f7f0d3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .letter-envelope {
+      position: relative;
+      width: 450px;
+      height: 500px;
+      background: #fff8b3;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transform: rotate(5deg);
+      transition: transform 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+    }
+    .letter-envelope:hover {
+      transform: rotate(0deg);
+    }
+    .letter {
+      padding: 40px;
+      text-align: center;
+      background: #fffbee;
+      position: relative;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 65%;
+      height: 100%;
+      overflow-y: auto; /* Enable scrolling */
+    }
+    .letter h2 {
+      font-size: 34px;
+      color: #f8a9d0;
+      margin: 0;
+      padding-bottom: 10px;
+      font-family: 'Comic Sans MS', sans-serif;
+    }
+    .letter p {
+      font-size: 20px;
+      color: #f8a9d0; /* All Pink Font */
+      margin: 20px 0;
+      font-family: 'Comic Sans MS', sans-serif;
+    }
+    .letter p.fancy {
+      font-size: 18px;
+      font-style: italic;
+      color: #f8a9d0; /* All Pink Font */
+    }
+    .letter button {
+      padding: 15px 35px;
+      background-color: #f8a9d0;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .letter button:hover {
+      background-color: #f580a1;
+      transform: scale(1.1);
+    }
+    .snoopy-img {
+      position: absolute;
+      right: 20px;
+      bottom: 30px;
+      width: 80px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://cdn.pixabay.com/photo/2017/08/30/00/26/sparkles-2697174_960_720.png');
+      background-repeat: no-repeat;
+      background-size: 50px;
+      animation: sparkle 1s infinite linear;
+    }
+    @keyframes sparkle {
+      0% { background-position: -50px -50px; }
+      100% { background-position: 50px 50px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter-envelope">
+    <div class="sparkles"></div>
+    <div class="letter" id="letter">
+      <h2>Hi there!</h2>
+      <p>Click the button to reveal a sweet surprise!</p>
+      <button onclick="revealMessage()">Click Me!</button>
+      <!-- The "Back to Start" button is initially hidden -->
+      <button id="backButton" onclick="goBackToStart()" style="margin-top: 20px; display: none;">Back to Start</button> 
+    </div>
+    <img class="snoopy-img" src="file:///C:/Users/SB2/Downloads/snoopy_-removebg-preview.png" alt="Snoopy" />
+  </div>
+
+  <script>
+    function revealMessage() {
+      const letterElement = document.getElementById('letter');
+      letterElement.innerHTML = `
+        <h2>Hi there!</h2>
+        <p> I just want to express that you are an amazing person and you deserve all the love possible. I appreciate having you in my life; I'm really happy that our paths crossed. Honestly, I can’t imagine my life without you.</p>
+        <p class="fancy">Please don't forget to take care of yourself and be happy, and please don't stop smiling because I really adore them, no words can express how I like your smile and how I love you.</p>
+        <p>Always remember that I'm always by your side. I'll be your kakampi, one call away friend, your biggest supporter.</p>
+        <p>Sorry if sometimes I ignore you in school, it's not like I don't want to see you nor talk to you it's the oposite. I really want to talk to you. Sadyang sobrang hiya lang talaga ako to the point whenever I see you I keep running away so flustered. But I will make bawi bawi for that, don't worry! </p>
+        <p>I guess my little letter ends here, but I still have so many letters and notes for you I keep in my phone, I will send those to you very soon! I hope this letter made you smile, see you again sa january 6. I love you Ate Cess. </p>
+        <!-- Now the "Back to Start" button is revealed -->
+        <button onclick="resetLetter()">Back to Start</button>
+      `;
+
+      // Show the "Back to Start" button after the message is revealed
+      document.getElementById('backButton').style.display = 'block';
+    }
+
+    function resetLetter() {
+      const letterElement = document.getElementById('letter');
+      letterElement.innerHTML = `
+        <h2>Hi there!</h2>
+        <p>Click the button to reveal a sweet surprise!</p>
+        <button onclick="revealMessage()">Click Me!</button>
+        <!-- The "Back to Start" button is initially hidden -->
+        <button id="backButton" onclick="goBackToStart()" style="margin-top: 20px; display: none;">Back to Start</button> 
+      `;
+      
+      // Hide the "Back to Start" button after reset
+      document.getElementById('backButton').style.display = 'none';
+    }
+
+    // Function to go back to the start of the letter
+    function goBackToStart() {
+      const letterElement = document.getElementById('letter');
+      letterElement.innerHTML = `
+        <h2>Hi there!</h2>
+        <p>Click the button to reveal a sweet surprise!</p>
+        <button onclick="revealMessage()">Click Me!</button>
+        <!-- The "Back to Start" button is initially hidden -->
+        <button id="backButton" onclick="goBackToStart()" style="margin-top: 20px; display: none;">Back to Start</button> 
+      `;
+      
+      // Hide the "Back to Start" button after reset
+      document.getElementById('backButton').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
